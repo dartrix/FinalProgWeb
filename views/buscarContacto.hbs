@@ -1,0 +1,56 @@
+<div class="columns">
+    <div class="column">
+        <form action="/contacto/buscar" method="post">
+            <div class="field has-addons">
+                <div class="control">
+                    <input class="input" type="text" placeholder="Find a repository">
+                </div>
+                <div class="control">
+                    <a class="button is-info">
+                        Search
+                    </a>
+                </div>
+            </div>
+        </form>
+        {{#if datos}}
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each datos}}
+                <tr>
+                    <td>{{this.nombre}}</td>
+                    <td>{{this.telefono}}</td>
+                    <td>{{this.email}}</td>
+                    <td>
+                        <div class="field has-addons">
+                            <p class="control">
+                                <a class="button is-info" href="/contacto/{{this._id}}/update">
+                                    <span>Editar</span>
+                                </a>
+                            </p>
+                            <p class="control">
+                                <a class="button is-success" href="/contacto/{{this._id}}">
+                                    <span>Mostrar</span>
+                                </a>
+                            </p>
+                            <p class="control">
+                                <a class="button is-danger" href="/contacto/{{this._id}}/delete">
+                                    <span>Eliminar</span>
+                                </a>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{/if}}
+    </div>
+</div>

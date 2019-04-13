@@ -1,0 +1,44 @@
+{{#if borrado}}
+se borro el contacto
+{{else}}
+<div class="notification is-danger">
+    Seguro de que desea borrar este contacto?
+</div>
+<div class="columns is-centered">
+    <div class="column is-half has-text-centered">
+        <h1 class="title">Contacto</h1>
+        <hr>
+        <div class="field">
+            <p><b>Nombre: </b><br> {{datos.nombre}}</p>
+        </div>
+        <div class="field">
+            <p><b>Telefono: </b> <br> {{datos.telefono}}</p>
+        </div>
+
+        <div class="field">
+            <p><b>email: </b><br> {{datos.email}}</p>
+        </div>
+
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <div class="control">
+                        <form action="/contacto/{{{ datos._id }}}/delete" method="post">
+                            <button type="submit" class=" button is-danger is-fullwidth">Borrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <div class="control">
+                        <a href="/contacto" class="button is-info is-fullwidth">Volver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{{/if}}

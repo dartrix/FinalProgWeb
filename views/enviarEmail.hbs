@@ -1,0 +1,33 @@
+{{#unless error}}
+<div class="columns is-centered">
+    <div class="column is-half">
+        <form action="/contacto/{{datos.id}}/mail" method="post">
+            <div class="field">
+                <label ><b>Email:</b></label>
+                <div class="control">
+                    <input type="text" value="{{datos.email}}" class="input" disabled>
+                </div>
+            </div>
+            <div class="field">
+                <label for="titulo"> <b>Titulo:</b> </label>
+                <div class="control">
+                    <input type="text" name="titulo" value="" class="input">
+                </div>
+            </div>
+            <div class="field">
+                <label for="mensaje"><b>Mensaje:</b></label>
+                <div class="control">
+                    <textarea type="text" name="mensaje" class="textarea"></textarea>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button type="submit" class="button is-info is-fullwidth">
+                        Enviar Correo
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{{/unless}}

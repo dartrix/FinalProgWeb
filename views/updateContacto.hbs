@@ -1,0 +1,37 @@
+{{#unless error}}
+<a href="/contacto" class="button">Volver</a>
+<h1 class="title has-text-centered ">Crear Contacto</h1>
+<div class="columns is-centered">
+    <div class="column is-one-third">
+
+        <form action="/contacto/{{{ datos._id }}}/update" method="post" >
+
+            <div class="field">
+                <label for="nombre" class="label">Nombre:</label>
+                <div class="control">
+                    <input type="text" name="nombre" id="nombre" class="input" value="{{{ datos.nombre }}}" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="telefono" class="label">Telefono:</label>
+                <div class="control">
+                    <input type="text" name="telefono" id="telefono" class="input" value="{{{ datos.telefono }}}"required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="email" class="label">Email:</label>
+                <div class="control">
+                    <input type="email" name="email" id="email" class="input" value="{{{ datos.email }}}" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <button type="submit " class="button is-fullwidth is-info">Actualizar</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+{{/unless}}

@@ -1,0 +1,30 @@
+{{#if error}}
+<div class="notification is-danger">{{msg}}</div>
+{{/if}}
+
+{{#if success}}
+<div class="notification is-success">{{msg}}</div>
+{{/if}}
+
+<h1 class="title has-text-centered">Log In</h1>
+<div class="columns is-centered">
+    <div class="column is-one-third">
+        <form action="./login" method="post">
+            <div class="field">
+                <label for="email" class="label">Email:</label>
+                <div class="control">
+                    <input type="email" name="email" class="input">
+                </div>
+            </div>
+            <div class="field">
+                <label for="password" class="label">Contraseña:</label>
+                <div class="control">
+                    <input type="password" name="password" class="input">
+                </div>
+            </div>
+            <div class="field">
+                <button type="submit" class="button is-fullwidth is-info">Iniciar Sesion</button>
+            </div>
+        </form>
+    </div>
+</div>

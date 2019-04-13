@@ -1,0 +1,88 @@
+{{#if user}}
+
+<div class="columns is-centered">
+    <div class="column">
+        <a href="/contacto/crear" class="button is-info">Crear Contacto</a>
+    </div>
+    {{#if buscar}}
+    <div class="column is-narrow has-text-centered ">
+        <a href="/" class="button is-success">Ver todos los contactos</a>
+    </div>
+    {{/if}}
+    <div class="column">
+        <form action="/contacto/buscar" method="post" class="is-pulled-right">
+            <div class="field has-addons">
+                <div class="control">
+                    <input class="input" type="text" name="buscar" placeholder="nombre, email o telefono">
+                </div>
+                <div class="control">
+                    <button class="button is-info" type="submit">
+                        Buscar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div class="columns">
+    <div class="column">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each datos}}
+                <tr>
+                    <td>{{this.nombre}}</td>
+                    <td>{{this.telefono}}</td>
+                    <td>{{this.email}}</td>
+                    <td>
+                        <div class="field has-addons">
+                            <p class="control">
+                                <a class="button is-info" href="/contacto/{{this._id}}/update">
+                                    <span>Editar</span>
+                                </a>
+                            </p>
+                            <p class="control">
+                                <a class="button is-success" href="/contacto/{{this._id}}">
+                                    <span>Mostrar</span>
+                                </a>
+                            </p>
+                            <p class="control">
+                                <a class="button is-primary" href="/contacto/{{this._id}}/mail">
+                                    <span>Email</span>
+                                </a>
+                            </p>
+                            <p class="control">
+                                <a class="button is-danger" href="/contacto/{{this._id}}/delete">
+                                    <span>Eliminar</span>
+                                </a>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+{{else}}
+
+<div class="columns is-centered">
+    <div class="column is-one-third">
+        <a href="/registrarse" class="button is-primary is-fullwidth"> <b>Registrarse</b> </a>
+    </div>
+    <div class="column is-one-third">
+        <a href="/login" class="button is-fullwidth is-light"> Log In </a>
+    </div>
+</div>
+
+{{/if}}
